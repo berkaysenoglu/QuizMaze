@@ -1,0 +1,24 @@
+.introduce{
+   width: 100%;
+   height: 100vh;
+   background-image: linear-gradient(#6936f5,#7A26C1);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   .introduce-container{
+    max-width: 800px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 15px;
+        img{
+            object-fit: contain;
+            aspect-ratio: 8/6;
+        }
+   }
+}
