@@ -1,11 +1,17 @@
 import React from "react";
 import "../styles/dropdown.scss";
-import { DownOutlined, SmileOutlined } from "@ant-design/icons";
-import { Dropdown, Space } from "antd";
-export const DropdownDifficulty = () => {
+import { Select } from "antd";
+export const DropdownDifficulty = ({ difficulty, setSelectedDifficulty }) => {
   return (
-    <>
-      <div>selams</div>
-    </>
+    <Select
+      style={{ marginBottom: "20px", width: "300px" }}
+      placeholder="Select difficulty"
+      optionFilterProp="children"
+      onChange={(value) => setSelectedDifficulty(value)}
+      options={difficulty.map((dt) => ({
+        value: `${dt}`,
+        label: `${dt.charAt(0).toUpperCase() + dt.slice(1)}`,
+      }))}
+    />
   );
 };
