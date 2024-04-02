@@ -8,7 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Introduce />} />
-          <Route path="/quiz/:difficulty/:amount" element={<Quiz />} />
+          <Route path='/quiz/:category/:difficulty' element={<Quiz />} />
         </Routes>
       </BrowserRouter>
     </div>

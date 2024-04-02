@@ -109,6 +109,13 @@ export const Introduce = () => {
       name: "Entertainment: Cartoon & Animations",
     },
   ];
+
+  const startQuiz = () => {
+    const categoryParam = selectedCategory || "any";
+    const difficultyParam = selectedDifficulty || "any";
+    navigate(`quiz/${categoryParam}/${difficultyParam}`);
+  };
+
   return (
     <ConfigProvider
       theme={{
@@ -131,7 +138,7 @@ export const Introduce = () => {
             style={{ width: "300px", marginBottom: " 10px" }}
             placeholder="Select category"
             optionFilterProp="children"
-            onChange={(value) => setSelectedDifficulty(value)}
+            onChange={(value) => setSelectedCategory(value)}
             options={categories.map((category) => ({
               value: `${category.id}`,
               label: `${category.name}`,
@@ -141,7 +148,7 @@ export const Introduce = () => {
             difficulty={difficulty}
             setSelectedDifficulty={setSelectedDifficulty}
           />
-          <Button>Sınava Başla</Button>
+          <Button onClick={startQuiz}>Start Quiz</Button>
         </div>
       </div>
     </ConfigProvider>
