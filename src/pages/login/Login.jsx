@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../contexts/AuthContext.jsx";
 import "../../styles/login.scss";
+import logo from "../../assets/logos/QuizMaze-logo.png";
 export const Login = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -28,12 +29,10 @@ export const Login = () => {
       setLoading(false);
     }
   };
-  const signinHandle = () => {
-    navigate("/register");
-  };
+
   return (
     <div className="page-container">
-      {/* <img className="login-logo" src={logo} alt="Logo" /> */}
+      {<img className="login-logo" src={logo} alt="Logo" />}
       <div className="login-wrapper">
         <div className="form-wrapper">
           <Form
@@ -108,15 +107,16 @@ export const Login = () => {
           </Form>
         </div>
         <div className="info-wrapper">
-          <h1>Why CoinFlow</h1>
+          <h1>Why QuizMaze</h1>
           <p>
-            CoinFlow provides the latest and most accurate cryptocurrency market
-            data in real-time. Our user-friendly interface allows both
-            experienced traders and beginners to easily monitor their crypto
-            portfolios. We prioritize your security with advanced encryption and
-            safety measures. Additionally, we offer detailed analytics and
-            charts to help you make informed decisions. Our 24/7 customer
-            support team is always available to assist you.
+            QuizMaze is the perfect platform to expand your knowledge and learn
+            in a fun way. By choosing categories that match your interests and
+            knowledge level, you can test yourself on topics that excite you the
+            most. Setting the difficulty level ensures an ideal experience for
+            both beginners and seasoned knowledge seekers. Our user-friendly
+            interface provides an easy and accessible experience for users of
+            all ages. With QuizMaze, learning and having fun has never been more
+            enjoyable!
           </p>
           <p></p>
         </div>
