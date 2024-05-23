@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import * as api from "../../api/api";
 import Modal from "../../components/Modal";
 import QuestionCard from "../../components/QuestionCard";
+
 export const Quiz = () => {
   const { category, difficulty } = useParams();
   const [questionsData, setQuestionsData] = useState([]);
@@ -17,7 +18,7 @@ export const Quiz = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(questionsData, "  :: Questions data");
+
   return (
     <div className="quiz">
       {modal ? (

@@ -1,6 +1,6 @@
 import "../styles/questionCard.scss";
 import React, { useEffect, useState } from "react";
-
+import he from "he";
 const QuestionCard = ({
   questionsData,
   score,
@@ -39,6 +39,7 @@ const QuestionCard = ({
       clearInterval(interval);
     };
   }, [timer]);
+
   return (
     <div className="questionCard">
       <div className="questionCard-timer">{timer}</div>
