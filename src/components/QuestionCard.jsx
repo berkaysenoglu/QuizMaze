@@ -9,18 +9,29 @@ const QuestionCard = ({
   setCount,
   modal,
   setModal,
+  setWrongQuestions,
+  wrongQuestions,
 }) => {
   const [timer, setTimer] = useState(30);
 
-  const approvedChoice = (e) => {
-    const checkAnswer =
-      e.currentTarget.value == questionsData[count]?.correct_answer;
+  const approvedChoice = (answer) => {
+    const checkAnswer = answer == questionsData[count]?.correct_answer;
 
     if (checkAnswer) {
       setScore(score + 100);
+    } else {
+      setWrongQuestions((prevWrongQuestions) => [
+        ...prevWrongQuestions,
+        {
+          question: questionsData[count],
+          wrongAnswer: answer,
+        },
+      ]);
     }
     setCount(count + 1);
-    if (count == 9) setModal(true);
+    if (count == 9) {
+      setModal(true);
+    }
     setTimer(30);
   };
   useEffect(() => {
@@ -45,11 +56,14 @@ const QuestionCard = ({
       <div className="questionCard-timer">{timer}</div>
       <div className="questionCard-title">
         {" "}
-        {count + 1}/10 - {questionsData[count]?.question}{" "}
+        {count + 1}/10 -{" "}
+        {questionsData[count]?.question
+          ? he.decode(questionsData[count]?.question)
+          : ""}
       </div>
       {questionsData[count]?.answers?.map((answer, i) => (
-        <button onClick={approvedChoice} value={answer} key={i}>
-          {answer}
+        <button onClick={() => approvedChoice(answer)} key={i}>
+          {he.decode(answer)}
         </button>
       ))}
     </div>

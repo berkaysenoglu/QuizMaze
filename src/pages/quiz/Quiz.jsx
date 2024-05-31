@@ -8,6 +8,7 @@ import QuestionCard from "../../components/QuestionCard";
 export const Quiz = () => {
   const { category, difficulty } = useParams();
   const [questionsData, setQuestionsData] = useState([]);
+  const [wrongQuestions, setWrongQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(0);
   const [modal, setModal] = useState(false);
@@ -18,11 +19,15 @@ export const Quiz = () => {
   useEffect(() => {
     getData();
   }, []);
-
+  console.log(wrongQuestions);
   return (
     <div className="quiz">
       {modal ? (
-        <Modal score={score} />
+        <Modal
+          wrongQuestions={wrongQuestions}
+          setWrongQuestions={setWrongQuestions}
+          score={score}
+        />
       ) : (
         <QuestionCard
           questionsData={questionsData}
@@ -32,6 +37,8 @@ export const Quiz = () => {
           setCount={setCount}
           modal={modal}
           setModal={setModal}
+          setWrongQuestions={setWrongQuestions}
+          wrongQuestions={wrongQuestions}
         />
       )}
     </div>
