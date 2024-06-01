@@ -19,11 +19,7 @@ const ResultsTable = ({ wrongQuestions }) => {
       title: "Correct Answer",
       dataIndex: "correctAnswer",
       key: "correctAnswer",
-      render: (
-        <div style={{ backgroundColor: "red" }}>
-          {(text, record) => he.decode(record.question.correct_answer)}
-        </div>
-      ),
+      render: (text, record) => he.decode(record.question.correct_answer),
     },
   ];
 
